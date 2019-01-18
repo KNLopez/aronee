@@ -13,8 +13,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: '/animations.min.js ', body: true }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -30,7 +29,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['~/plugins/particles.min.js'],
 
   /*
   ** Nuxt.js modules
@@ -60,7 +59,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules|plugins)/
         })
       }
     }

@@ -1,120 +1,44 @@
 <template>
-  <section class="container text-center">
-    <div class="hero">
-      <h1>Albet and Aronee</h1>
-      <p>#BETterwithCHA</p>
+  <div class="login-container">
+    <div id="particles-bg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway" 
+      rel="stylesheet">
+    <div class="login">
+      <img src="~assets/images/Fill1.png">
+      <input
+        v-model="code"
+        type="text"
+        placeholder="ENTER CODE">
+      <button @click.stop.prevent="validateCode()"> ENTER SITE </button>
+      <p v-if="error">There seems to be something wrong with your code.</p>
     </div>
-    <div class="grid-container">
-      <div class="intro-text">
-        <p>With the blessing of God and our families,<br> we would like to invite you on our wedding day.</p>
-        <h2>January 28, 2019</h2>
-      </div>
-      <div class="info-card">
-        <div class="info-card-image">
-          <img src="~assets/images/stclements.jpg">
-        </div>
-        <div class="info-card--text">
-          <p>Our wedding will take place at</p>
-          <h3>St.Celement's Church Iloilo </h3>
-          <p>The ceremony will start at</p>
-          <h3>2:00 in the afternoon</h3>
-          <a> VIEW ON MAP </a>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-image">
-          <img src="~assets/images/sheridan.jpg">
-        </div>
-        <div class="info-card--text">
-          <p>Dinner and (a lot of) dancing to follow at</p>
-          <h3>Sheridan Boutique Resort</h3>
-          <a> VIEW ON MAP </a>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-image">
-          <img src="~assets/images/rsvp.jpg">
-        </div>
-        <div class="info-card--text">
-          <p>RSVP</p>
-          <h3>Jerly</h3>
-          <h3 class="hashtag">09778342073</h3>
-          <a> click to call </a>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card--text">
-          <p>Attire and Clothing</p>
-          <h3>What to wear</h3>
-          <img src="~assets/images/gentlemen.jpg">
-          <p>Gentlemen | Suit and Tie</p>
-          <br>
-          <img src="~assets/images/ladies.jpg">
-          <p>Ladies | Long gown or Midi</p>
-          <br>
-          <h3>color palette</h3>
-          <img src="~assets/images/palette.jpg">
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-image">
-          <img src="~assets/images/gifts.jpg">
-        </div>
-        <div class="info-card--text">
-          <h3>Gifts</h3>
-          <p>Your presence at our wedding is enough but if we are honored with a gift from you, a gift that fits the envelope will do. </p>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-image">
-          <img src="~assets/images/betterwithcha.jpg">
-        </div>
-        <div class="info-card--text">
-          <p>Are you taking pictures?<br>Help us capture our moments by using the hashtag</p>
-          <h3 class="hashtag">#BETterwithCHA</h3>
-          <p>We can't wait to see your images</p>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card--text">
-          <h3>Kindly Remember</h3>
-          <h4>On taking photos</h4>
-          <p>Avoid crossing or blocking the aisle during the ceremony.</p>
-          <h4>On phones and other gadgets</h4>
-          <p>Please keep them in silent mode.</p>
-          <h4>ON BRINGING SOMEONE ALONG</h4>
-          <p>As much as we would like to accomodate everyone, we can only accomodate those who are invited.</p>
-        </div>
-      </div>
-      <div class="intro-text">
-        <p>with love</p>
-        <h2>Albet and Aronee</h2>
-      </div>
-    </div>
-  </section>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      code: '',
+      error: false
+    }
+  },
   mounted: function() {
-    this.mountAnimation()
+    this.$particles()
+    this.mountBackground()
   },
   methods: {
-    mountAnimation: function() {
-      let cards = document.querySelectorAll('.info-card')
-      if (cards) {
-        window.onscroll = function() {
-          cards.forEach(card => {
-            if (
-              card.getBoundingClientRect().top <=
-              Math.floor(window.innerHeight / 1.1)
-            ) {
-              card.classList.add('show')
-            } else {
-              card.classList.remove('show')
-            }
-          })
-        }
+    mountBackground: function() {
+      particlesJS.load('particles-bg', '/config.json', function() {
+        console.log('loaded')
+      })
+    },
+    validateCode: function() {
+      if (this.code.toUpperCase() === 'ALBETCHA123') {
+        this.$router.push('/' + this.code)
+      } else {
+        this.error = true
       }
     }
   }
@@ -122,79 +46,92 @@ export default {
 </script>
 
 <style>
-.hero {
-  background: url('~assets/images/hero-background.jpg');
-  background-size: cover;
-  background-position: center;
+html,
+body {
   min-height: 100vh;
-  width: 100%;
+}
+.login-container {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.5px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   flex-direction: column;
-  color: var(--white-color, #fff);
-}
-
-.hero h1 {
-  color: var(--white-color, #fff);
-}
-
-.hero p {
-  color: var(--white-color, #fff);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.intro-text {
-  padding: 4em 0;
-}
-
-.info-card {
-  max-width: 480px;
-  background: var(--white-color, #fff);
-  border-radius: 5px;
-  overflow: hidden;
-  opacity: 0;
-  margin: 0 auto 3em;
-  transform: translateY(50px);
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  transition: 1s ease all;
-}
-
-.show {
-  transform: translateY(0);
-  opacity: 1;
-  transition: 1s ease all;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-}
-
-.info-card--text {
-  padding: 1em 3em 3em;
-}
-.info-card--text h3.hashtag {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-bottom: 0.5em;
-}
-.info-card--text h4 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-}
-
-.grid-container {
-  max-width: 1100px;
+  max-width: 80%;
+  text-align: center;
   margin: 0 auto;
-  padding: 0 15px 3em;
 }
 
-@media only screen and (max-width: 720px) {
-  .info-card--text {
-    padding: 1em 2em 3em;
-  }
-  .intro-text {
-    padding: 2em 0;
-  }
+.login-container p {
+  padding: 2em;
+  color: red;
+}
+
+.login-container img {
+  margin-bottom: 1em;
+}
+
+.login-container input {
+  border: 0;
+  border-bottom: 1px rgb(217, 217, 217) solid;
+  padding: 10px;
+  text-align: center;
+  transition: 0.3s ease-out all;
+  margin-bottom: 2em;
+  text-transform: uppercase;
+}
+
+.login-container input:focus {
+  outline: none;
+  transform: scale(1.1);
+  padding: 2em;
+  transition: 0.3s ease-out all;
+}
+.login-container button {
+  background: #232751;
+  color: #fff;
+  border: 0;
+  padding: 1em 3em;
+}
+
+.login-container button:hover {
+  backgorund: #383d72;
+}
+
+.login-container .login {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  position: relative;
+  z-index: 4;
+  padding: 30px;
+  box-shadow: 0px 0px 1000px 0px rgba(0, 0, 0, 0.051);
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgb(217, 217, 217);
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgb(217, 217, 217);
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgb(217, 217, 217);
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgb(217, 217, 217);
+}
+
+#particles-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 </style>
