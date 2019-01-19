@@ -18,7 +18,7 @@
           <h3>St.Celement's Church Iloilo </h3>
           <p>The ceremony will start at</p>
           <h3>2:00 in the afternoon</h3>
-          <a> VIEW ON MAP </a>
+          <a href="https://maps.google.com/?saddr=My%20Location&daddr=St.+Clement's+Church,+Iloilo"> GET DIRECTIONS </a>
         </div>
       </div>
       <div class="info-card">
@@ -28,7 +28,7 @@
         <div class="info-card--text">
           <p>Dinner and (a lot of) dancing to follow at</p>
           <h3>Sheridan Boutique Resort</h3>
-          <a> VIEW ON MAP </a>
+          <a href="https://maps.google.com/?saddr=My%20Location&daddr=Sheridan+Boutique+Resort,+Oton,+Iloilo"> GET DIRECTIONS </a>
         </div>
       </div>
       <div class="info-card">
@@ -38,8 +38,10 @@
         <div class="info-card--text">
           <p>RSVP</p>
           <h3>Jerly</h3>
-          <h3 class="hashtag">09778342073</h3>
-          <a> click to call </a>
+          <a 
+            href="tel:09778342073"
+            class="hashtag">09778342073</a>
+          <p> click to call </p>
         </div>
       </div>
       <div class="info-card">
@@ -173,9 +175,15 @@ export default {
 .info-card--text {
   padding: 1em 3em 3em;
 }
-.info-card--text h3.hashtag {
+
+.info-card--text a {
+  color: var(--main-color);
+}
+
+.info-card--text .hashtag {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-bottom: 0.5em;
+  font-size: 2em;
 }
 .info-card--text h4 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';

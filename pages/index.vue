@@ -4,14 +4,19 @@
     <link
       href="https://fonts.googleapis.com/css?family=Raleway" 
       rel="stylesheet">
+    <img
+      class="login-bg"
+      src="~assets/images/bg-login.png">
     <div class="login">
-      <img src="~assets/images/Fill1.png">
-      <input
-        v-model="code"
-        type="text"
-        placeholder="ENTER CODE">
-      <button @click.stop.prevent="validateCode()"> ENTER SITE </button>
-      <p v-if="error">There seems to be something wrong with your code.</p>
+      <div class="input-container">
+        <img src="~assets/images/Fill1.png">
+        <input
+          v-model="code"
+          type="text"
+          placeholder="ENTER CODE">
+        <button @click.stop.prevent="validateCode()"> ENTER SITE </button>
+        <p v-if="error">There seems to be something wrong with your code.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -35,8 +40,8 @@ export default {
       })
     },
     validateCode: function() {
-      if (this.code.toUpperCase() === 'ALBETCHA123') {
-        this.$router.push('/' + this.code)
+      if (this.code.toUpperCase() === 'DINAGYANG') {
+        this.$router.push('/home')
       } else {
         this.error = true
       }
@@ -58,9 +63,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 80%;
   text-align: center;
   margin: 0 auto;
+  background: #fff;
+  background-size: auto 100%;
+  background-position: center center;
 }
 
 .login-container p {
@@ -80,6 +87,9 @@ body {
   transition: 0.3s ease-out all;
   margin-bottom: 2em;
   text-transform: uppercase;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 .login-container input:focus {
@@ -93,6 +103,7 @@ body {
   color: #fff;
   border: 0;
   padding: 1em 3em;
+  width: 100%;
 }
 
 .login-container button:hover {
@@ -100,13 +111,26 @@ body {
 }
 
 .login-container .login {
-  display: flex;
-  flex-direction: column;
-  background: white;
   position: relative;
   z-index: 4;
-  padding: 30px;
-  box-shadow: 0px 0px 1000px 0px rgba(0, 0, 0, 0.051);
+  width: 80%;
+  height: 50vh;
+  min-height: 300px;
+  max-height: 450px;
+  max-width: 480px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container .input-container {
+  max-width: 250px;
+  padding: 40px;
+}
+
+.login-bg {
+  position: absolute;
 }
 
 ::-webkit-input-placeholder {
@@ -133,5 +157,16 @@ body {
   left: 0;
   right: 0;
   z-index: 0;
+}
+
+@media only screen and (max-width: 720px) {
+  .login-container .login {
+    height: 30vh;
+  }
+
+  .login-bg {
+    position: absolute;
+    width: 110%;
+  }
 }
 </style>
