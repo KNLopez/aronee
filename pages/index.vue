@@ -165,15 +165,23 @@ body {
     width: 80px;
   }
 
+  .login-bg {
+    display: none;
+  }
+
+  .login-container {
+    background: url('~assets/images/mobile-bg.png');
+    background-size: 100% 100%;
+  }
   .login-container .login {
-    height: 35vh;
+    height: 350px;
+    min-height: 35vh;
     width: 70%;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.11);
     min-height: auto;
   }
 
   .login-bg {
-    position: fixed;
+    position: absolute;
     width: 110%;
   }
 }
