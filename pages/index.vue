@@ -183,12 +183,14 @@ body {
     bottom: 0;
     top: 0;
     height: 100%;
+    z-index: 2;
   }
   .login-container .login {
     height: 350px;
     min-height: 35vh;
     width: 70%;
     min-height: auto;
+    background: transparent;
   }
 
   .login-bg {
