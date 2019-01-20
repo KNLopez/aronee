@@ -38,6 +38,9 @@ export default {
       particlesJS.load('particles-bg', '/config.json', function() {
         console.log('loaded')
       })
+      document.ontouchmove = function(e) {
+        e.preventDefault()
+      }
     },
     validateCode: function() {
       if (this.code.toUpperCase() === 'DINAGYANG') {
@@ -171,7 +174,9 @@ body {
 
   .login-container {
     background: url('~assets/images/mobile-bg.png');
-    background-size: 100% 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .login-container .login {
     height: 350px;
