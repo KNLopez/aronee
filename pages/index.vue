@@ -131,6 +131,7 @@ body {
 
 .login-bg {
   position: absolute;
+  opacity: 0.5;
 }
 
 ::-webkit-input-placeholder {
@@ -160,12 +161,19 @@ body {
 }
 
 @media only screen and (max-width: 720px) {
+  .input-container img {
+    width: 80px;
+  }
+
   .login-container .login {
-    height: 30vh;
+    height: 35vh;
+    width: 70%;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.11);
+    min-height: auto;
   }
 
   .login-bg {
-    position: absolute;
+    position: fixed;
     width: 110%;
   }
 }
