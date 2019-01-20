@@ -8,13 +8,13 @@
       }
     },
     "color": {
-      "value": "#71748d"
+      "value": "#AAABB8"
     },
     "shape": {
       "type": "circle",
       "stroke": {
         "width": 5,
-        "color": "#71748d"
+        "color": "#AAABB8"
       },
       "polygon": {
         "nb_sides": 5
@@ -54,7 +54,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 0.8,
+      "speed": 1,
       "direction": "none",
       "random": true,
       "straight": false,

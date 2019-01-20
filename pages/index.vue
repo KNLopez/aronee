@@ -177,6 +177,12 @@ body {
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    height: 100%;
   }
   .login-container .login {
     height: 350px;
